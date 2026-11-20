@@ -1,0 +1,63 @@
+{
+  "name": "hookrelay",
+  "version": "1.0.0",
+  "description": "Self-hosted webhook inspector and localhost tunnel: capture, inspect live, forward and replay webhooks to your dev machine.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Michael Timothy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timmichael738/hookrelay.git"
+  },
+  "keywords": [
+    "webhooks",
+    "tunnel",
+    "websocket",
+    "sse",
+    "developer-tools",
+    "cli",
+    "fastify",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "hookrelay": "dist/cli/main.js"
+  },
+  "files": [
+    "dist",
+    "public"
+  ],
+  "scripts": {
+    "dev": "tsx watch src/server/main.ts",
+    "cli": "tsx src/cli/main.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "start": "node dist/server/main.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@fastify/static": "^10.1.12",
+    "@fastify/websocket": "^11.3.7",
+    "fastify": "^5.12.8",
+    "ws": "^8.23.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.19.2",
+    "@types/ws": "^8.18.2",
+    "eslint": "^10.15.0",
+    "prettier": "^3.10.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.73.0",
+    "vitest": "^4.1.12"
+  }
+}
